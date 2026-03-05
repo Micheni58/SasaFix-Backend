@@ -1,0 +1,38 @@
+--- Folder Layout ---
+.env
+[.git] (...)
+.gitignore
+.python-version
+[alembic]
+    ├── README
+    ├── env.py
+    ├── script.py.mako
+    └── [versions]
+alembic.ini
+requirements.txt
+[server]
+    ├── [__pycache__] (...)
+    ├── [core]
+        ├── [__pycache__] (...)
+        ├── config.py
+        ├── database.py
+        └── security.py
+    ├── main.py
+    ├── [models]
+        ├── [__pycache__] (...)
+        └── user.py
+    ├── [resources]
+        ├── [__pycache__] (...)
+        └── user_resource.py
+    ├── [schemas]
+        ├── [__pycache__] (...)
+        └── user_schema.py
+    └── [services]
+        ├── [__pycache__] (...)
+        └── user_service.py
+[venv]
+    ├── [bin] (...)
+    ├── [include] (...)
+    ├── [lib] (...)
+    ├── lib64
+    └── pyvenv.cfg
