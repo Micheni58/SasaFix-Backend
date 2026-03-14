@@ -1,3 +1,4 @@
+# user_resource.py - Jeremy
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from server.services import user_service

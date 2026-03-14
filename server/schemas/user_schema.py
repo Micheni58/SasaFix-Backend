@@ -1,3 +1,4 @@
+# user_schema.py - Jeremy   
 from pydantic import BaseModel, EmailStr
 
 class UserCreate(BaseModel):

@@ -1,3 +1,9 @@
+# models/user.py - Jeremy
+# id, first_name, 
+# last_name, email, phone_number, password_hash, 
+# role (client or service_provider or admin), 
+# profile_photo_url, location, created_at, updated_at, 
+# is_active, is_suspended
 from sqlalchemy import Column, Integer, String
 from server.core.database import Base  
 
