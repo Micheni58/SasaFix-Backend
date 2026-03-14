@@ -76,7 +76,7 @@ http://127.0.0.1:8000
 ```
 ---
 # 9. Create Your Own Development Branch
-Each developer should create a branch using your name.
+Each developer should create a branch using the feature name you are creating.
 Example:
 ```bash
 git checkout -b name
