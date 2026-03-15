@@ -2,11 +2,11 @@
 
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from server.services import serviceprovider_service
 from server.core.database import get_db  # database.py
 
 router = APIRouter()
 
-@router.get("/service_providers")
-def get_service_providers(db: Session = Depends(get_db)):
-    return serviceprovider_service.get_service_providers(db)
+@router.get("/providerservices")
+def get_provider_services(db: Session = Depends(get_db)):
+    # Placeholder for fetching provider services from the database
+    return {"message": "List of provider services will be returned here."}
