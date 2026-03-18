@@ -1,13 +1,24 @@
-# user_schema.py - Jeremy   
 from pydantic import BaseModel, EmailStr
+from typing import Optional
 
-class UserCreate(BaseModel):
+class UserBase(BaseModel):
     email: EmailStr
-    password: str
+    full_name: str
+    role: str = "client"
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    phone_number: Optional[str] = None
 
-class UserResponse(BaseModel):
+class UserCreate(UserBase):
+    password: str  # Plain text password from request
+
+class UserResponse(UserBase):
     id: int
-    email: EmailStr
+    is_active: bool
 
     class Config:
-        from_attributes = True   
+        from_attributes = True
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
