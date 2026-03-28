@@ -19,9 +19,14 @@ class ServiceProvider(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
+    contact_email = Column(String, unique=True, index=True, nullable=True) 
+    # contact_email relationship to the bookings table -Caleb added this to be able to send emails to the provider when a booking is created or updated
     service_type = Column(String)
 
     bookings = relationship("Booking", back_populates="service_provider")
-
+    # Bookings relationship to the Booking table -Caleb added this to be able to access the provider's bookings when sending emails
     def __repr__(self):
-        return f"<ServiceProvider(id={self.id}, name='{self.name}', service_type='{self.service_type}')>"
+        return (
+            f"<ServiceProvider(id={self.id}, name='{self.name}', "
+            f"contact_email='{self.contact_email}', service_type='{self.service_type}')>"
+        )
