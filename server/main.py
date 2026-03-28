@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from server.resources import user_resource
+from server.resources import booking_resource, user_resource
 
 app = FastAPI(title="Sasafix API", version="1.0")
 
@@ -18,3 +18,4 @@ def read_root():
     return {"message": "Welcome to Sasafix API"}
 
 app.include_router(user_resource.router, prefix="/api")
+app.include_router(booking_resource.router, prefix="/api")
