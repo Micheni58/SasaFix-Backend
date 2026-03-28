@@ -4,10 +4,12 @@
 # role (client or service_provider or admin),
 # profile_photo_url, location, created_at, updated_at,
 # is_active, is_suspended
-# models/user.py
-from sqlalchemy import Column, Integer, String, Boolean, DateTime
-from server.core.database import Base
 import datetime
+
+from sqlalchemy import Boolean, Column, DateTime, Integer, String
+from sqlalchemy.orm import relationship
+
+from server.core.database import Base
 
 class User(Base):
     __tablename__ = "users"
@@ -30,6 +32,13 @@ class User(Base):
     updated_at = Column(DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
     is_active = Column(Boolean, default=True)
     is_suspended = Column(Boolean, default=False)
+
+    client_bookings = relationship(
+        "Booking",
+        back_populates="client",
+        foreign_keys="Booking.client_id",
+        cascade="all, delete-orphan",
+    )
 
     def __repr__(self):
         return f"<User(id={self.id}, full_name='{self.full_name}', email='{self.email}', role='{self.role}')>"

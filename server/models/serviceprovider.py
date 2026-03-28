@@ -6,10 +6,12 @@
 # smile_identity_job_id, 
 # national_id_front_url, 
 # national_id_back_url, 
-# selfie_url, is_premium, average_rating, total_reviews, 
-# total_jobs_completed, response_time_minutes, 
+# selfie_url, is_premium, average_rating, total_reviews,
+# total_jobs_completed, response_time_minutes,
 # member_since, created_at, updated_at
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+
 from server.core.database import Base
 
 class ServiceProvider(Base):
@@ -18,6 +20,8 @@ class ServiceProvider(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
     service_type = Column(String)
+
+    bookings = relationship("Booking", back_populates="service_provider")
 
     def __repr__(self):
         return f"<ServiceProvider(id={self.id}, name='{self.name}', service_type='{self.service_type}')>"
