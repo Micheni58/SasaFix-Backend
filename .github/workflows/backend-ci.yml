@@ -57,3 +57,5 @@ jobs:
 
       - name: Run tests
         run: pytest server/tests/ -v
+        env:
+          PYTHONPATH: .
