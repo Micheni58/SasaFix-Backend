@@ -37,9 +37,9 @@ class BookingResponse(BaseModel):
     service_provider_id: int
     service_name: str
     description: Optional[str]
-    scheduled_date: date
-    scheduled_start_time: time
-    scheduled_end_time: time
+    scheduled_date: Optional[date] = None
+    scheduled_start_time: Optional[time] = None
+    scheduled_end_time: Optional[time] = None
     location: str
     latitude: Optional[float]
     longitude: Optional[float]
